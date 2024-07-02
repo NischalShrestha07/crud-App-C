@@ -49,7 +49,11 @@
             </div>
             @endif
             {{-- ------------------------------------------------------------- --}}
-
+            @if (@session()->has('errorMsg'))
+            <div class="alert alert-danger">
+                {{session('errorMsg')}}
+            </div>
+            @endif
 
         </div>
         <div class="row">
@@ -83,7 +87,9 @@
                                 <td>{{$article->title}}</td>
                                 <td>{{$article->author}}</td>
                                 <td>{{$article->created_at}}</td>
-                                <td><a href="" class="btn btn-primary">Edit</a></td>
+                                {{-- NOTE THIS POINT FOR THE EDIT.BLADE.PHP path --}}
+                                <td><a href="{{url('articles/edit/'.$article->id)}}" class="btn btn-primary">Edit</a>
+                                </td>
                                 <td><a href="" class="btn btn-danger">Delete</a></td>
 
                             </tr>

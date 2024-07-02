@@ -12,7 +12,9 @@ class ArticleController extends Controller
     public function show()
     {
         // return view('list');
+        // below line shows the data in the reverse order
         // $articles = DB::table('articles')->orderBy('id', 'desc')->get();
+
         // both up and down codes does the same work
         $articles = Article::all();
 
@@ -20,7 +22,7 @@ class ArticleController extends Controller
         // use of compact does the same as ['article'=>$articles]
     }
 
-    public function add()
+    public function addArticle()
     {
         return view('add');
     }
@@ -44,5 +46,16 @@ class ArticleController extends Controller
         } else {
             return redirect(route('articles.add'))->withErrors($validator)->withInput();
         }
+    }
+    public function editArticle($id, Request $request)
+    {
+        //fetch a record form the database
+        $article = Article::where('id', $id)->first();
+        if (!$article) {
+            return redirect(route('articles.show'))->with('errorMsg', 'Record not found.');
+        }
+        // echo $id;
+
+        return view('edit')->with(compact('article'));
     }
 }
