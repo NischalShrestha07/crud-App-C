@@ -40,12 +40,20 @@
                         <h2 class="text-center">Article/List</h2>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post" name="addArticle">
+                        <form action="{{route('articles.add')}}" method="post" name="addArticle">
+                            @csrf {{--@csrf is use to stop the cross sided requests which is essential for secuirity
+                            --}}
                             <div class="form-group mb-1">
                                 <label for="">
                                     <h3>Title</h3>
                                 </label>
                                 <input type="text " name="title" value="" class="form-control">
+
+                                {{-- shows the erorrs --}}
+                                @if ($errors->any())
+                                <p>{{$errors->first('title')}}</p>
+
+                                @endif
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">
@@ -54,12 +62,23 @@
                                 <textarea name="description" class="form-control" id="description" cols="30"
                                     rows="10"></textarea>
 
+                                {{-- shows the erorrs --}}
+                                @if ($errors->any())
+                                <p>{{$errors->first('description')}}</p>
+
+                                @endif
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">
                                     <h3>Author</h3>
                                 </label>
                                 <input name="author" id="author" class="form-control">
+
+                                {{-- shows the erorrs --}}
+                                @if ($errors->any())
+                                <p>{{$errors->first('author')}}</p>
+
+                                @endif
                             </div>
                             <button class="form-group mt-2 btn btn-primary" name='submit'>Save Article</button>
 
