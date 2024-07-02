@@ -10,8 +10,65 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('public/css/bootstrap.css') }}">
 </head>
+<style>
+    h3 {
+        font-family: cursive;
+        font-size: 30px;
+        font-weight: bold
+    }
+</style>
 
-<body>
+<body class="bg-light">
+    <div class="p-3  bg-dark text-white py-3 ">
+        <div class="container">
+            <div class="h3">LARAVEL 11 CRUD APPLICATION</div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-4 text-right mb-3">
+                <a href="{{route('articles.show')}}" class="btn btn-primary">
+                    <h4>BACK</h4>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-122">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h2 class="text-center">Article/List</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post" name="addArticle">
+                            <div class="form-group mb-1">
+                                <label for="">
+                                    <h3>Title</h3>
+                                </label>
+                                <input type="text " name="title" value="" class="form-control">
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">
+                                    <h3>Description</h3>
+                                </label>
+                                <textarea name="description" class="form-control" id="description" cols="30"
+                                    rows="10"></textarea>
+
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">
+                                    <h3>Author</h3>
+                                </label>
+                                <input name="author" id="author" class="form-control">
+                            </div>
+                            <button class="form-group mt-2 btn btn-primary" name='submit'>Save Article</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> ,
 
 </body>
 

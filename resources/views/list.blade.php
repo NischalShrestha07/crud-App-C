@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="{{ asset('public/css/bootstrap.css') }}">
 </head>
 
+<style>
+    .cursive {
+        font-family: cursive
+    }
+</style>
+
 <body class="bg-light">
     <div class="p-3  bg-dark text-white py-3 ">
         <div class="container">
@@ -22,8 +28,10 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-right mb-3">
-                <a href="" class="btn btn-primary">ADD</a>
+            <div class="col-md-12 mt-4 text-right mb-3">
+                <a href="{{route('articles.add')}}" class="btn btn-primary">
+                    <h4>ADD</h4>
+                </a>
             </div>
         </div>
         <div class="row">
@@ -34,14 +42,14 @@
                     </div>
                     <div class="card-body">
                         <table class=" table">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th>Created</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                            <thead class="bg-dark text-white">
+                                <tr class="cursive">
+                                    <th class="h5 ">ID</th>
+                                    <th class="h5 ">Title</th>
+                                    <th class="h5 ">Author</th>
+                                    <th class="h5 ">Created</th>
+                                    <th class="h5 ">Edit</th>
+                                    <th class="h5 ">Delete</th>
                                 </tr>
                             </thead>
                             <tr>
