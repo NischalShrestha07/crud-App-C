@@ -91,7 +91,7 @@
                                 <td><a href="{{url('articles/edit/'.$article->id)}}" class="btn btn-primary">Edit</a>
                                 </td>
                                 <td><a href="{{url('articles/delete/'.$article->id)}}"
-                                        onclick="deleteArticle($article->id);" class="btn btn-danger">Delete</a>
+                                        onclick="deleteArticle({{$article->id}});" class="btn btn-danger">Delete</a>
                                 </td>
 
                             </tr>

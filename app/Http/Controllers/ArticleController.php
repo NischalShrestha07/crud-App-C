@@ -87,7 +87,7 @@ class ArticleController extends Controller
         if (!$article) {
             return redirect(route('articles.show'))->with('errorMsg', 'Record not found.');
         }
-        Article::whee('id', $id)->delete();
+        Article::where('id', $id)->delete();
         return redirect(route('articles.show'))->with('success', 'Record has been deleted successfully.');
     }
 }
