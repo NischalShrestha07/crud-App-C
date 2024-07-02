@@ -21,7 +21,7 @@
 <body class="bg-light">
     <div class="p-3  bg-dark text-white py-3 ">
         <div class="container">
-            <div class="h3">LARAVEL 11 CRUD APPLICATION</div>
+            <div class="h3 text-center">LARAVEL 11 CRUD APPLICATION</div>
         </div>
 
     </div>
@@ -47,11 +47,14 @@
                                 <label for="">
                                     <h3>Title</h3>
                                 </label>
-                                <input type="text " name="title" value="" class="form-control">
+
+                                {{-- {{old('title')}} shows back the past used datas used in value="" --}}
+                                <input type="text " name="title" value="{{old('title')}}"
+                                    class="form-control {{($errors->any() && $errors->first('title'))?'is-invalid':''}}">
 
                                 {{-- shows the erorrs --}}
                                 @if ($errors->any())
-                                <p>{{$errors->first('title')}}</p>
+                                <p class="invalid-feedback">{{$errors->first('title')}}</p>
 
                                 @endif
                             </div>
@@ -59,12 +62,13 @@
                                 <label for="">
                                     <h3>Description</h3>
                                 </label>
-                                <textarea name="description" class="form-control" id="description" cols="30"
-                                    rows="10"></textarea>
+                                <textarea name="description"
+                                    class="form-control {{($errors->any() && $errors->first('description'))?'is-invalid':''}}"
+                                    id="description" cols="30" rows="10">{{old('description')}}</textarea>
 
                                 {{-- shows the erorrs --}}
                                 @if ($errors->any())
-                                <p>{{$errors->first('description')}}</p>
+                                <p class="invalid-feedback">{{$errors->first('description')}}</p>
 
                                 @endif
                             </div>
@@ -72,11 +76,13 @@
                                 <label for="">
                                     <h3>Author</h3>
                                 </label>
-                                <input name="author" id="author" class="form-control">
+                                <input name="author" id="author"
+                                    class="form-control {{($errors->any() && $errors->first('author'))?'is-invalid':''}}"
+                                    value="{{old('author')}}">
 
                                 {{-- shows the erorrs --}}
                                 @if ($errors->any())
-                                <p>{{$errors->first('author')}}</p>
+                                <p class="invalid-feedback">{{$errors->first('author')}}</p>
 
                                 @endif
                             </div>
