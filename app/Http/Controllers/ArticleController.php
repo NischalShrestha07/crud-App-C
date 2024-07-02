@@ -10,4 +10,8 @@ class ArticleController extends Controller
     {
         return view('list');
     }
+    public function add()
+    {
+        return view('add');
+    }
 }
