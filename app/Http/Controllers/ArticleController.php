@@ -58,4 +58,36 @@ class ArticleController extends Controller
 
         return view('edit')->with(compact('article'));
     }
+    public function updateArticle($id, Request $request)
+    {
+        // copy of saveArticle()
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'author' => 'required|max:100'
+        ]);
+        if ($validator->passes()) {
+            // echo "Validated";
+            $article =  Article::find($id); //made changes
+
+            $article->title = $request->title;
+            $article->description = $request->description;
+            $article->author = $request->author;
+            $article->save();
+
+            return redirect()->route('articles.show')->with('success', 'Article updated successfully. ');
+        } else {
+            return redirect(route('articles.add' . $id))->withErrors($validator)->withInput();
+        }
+    }
+    public function deleteArticle($id, Request $request)
+    {
+        //copy from edit
+        $article = Article::where('id', $id)->first();
+        if (!$article) {
+            return redirect(route('articles.show'))->with('errorMsg', 'Record not found.');
+        }
+        Article::whee('id', $id)->delete();
+        return redirect(route('articles.show'))->with('success', 'Record has been deleted successfully.');
+    }
 }

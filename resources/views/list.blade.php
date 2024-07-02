@@ -90,13 +90,15 @@
                                 {{-- NOTE THIS POINT FOR THE EDIT.BLADE.PHP path --}}
                                 <td><a href="{{url('articles/edit/'.$article->id)}}" class="btn btn-primary">Edit</a>
                                 </td>
-                                <td><a href="" class="btn btn-danger">Delete</a></td>
+                                <td><a href="{{url('articles/delete/'.$article->id)}}"
+                                        onclick="deleteArticle($article->id);" class="btn btn-danger">Delete</a>
+                                </td>
 
                             </tr>
                             @endforeach
                             @else
                             <tr>
-                                <td colspan="6">Articl not added yet.</td>
+                                <td colspan="6">Article not added yet.</td>
                             </tr>
                             @endif
 
@@ -111,5 +113,13 @@
 
 
 </body>
+<script type="text/javascript">
+    function deleteArticle(id){
+    if(confirm("Are you want to delete?")){
+        window.location.href="{{url('articles/delete/')}}"+id;
+        
+    }
+}
+</script>
 
 </html>

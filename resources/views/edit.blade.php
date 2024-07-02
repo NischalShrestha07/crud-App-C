@@ -67,7 +67,7 @@
                                 <textarea name="description"
                                     class="form-control {{($errors->any() && $errors->first('description'))?'is-invalid':''}}"
                                     id="description" cols="30"
-                                    rows="10">{{old('description',$article->title)}}</textarea>
+                                    rows="10">{{old('description',$article->description)}}</textarea>
 
                                 {{-- shows the erorrs --}}
                                 @if ($errors->any())
@@ -81,7 +81,7 @@
                                 </label>
                                 <input name="author" id="author"
                                     class="form-control {{($errors->any() && $errors->first('author'))?'is-invalid':''}}"
-                                    value="{{old('author')}}">
+                                    value="{{old('title',$article->author)}}">
 
                                 {{-- shows the erorrs --}}
                                 @if ($errors->any())
@@ -89,7 +89,7 @@
 
                                 @endif
                             </div>
-                            <button class="form-group mt-2 btn btn-primary" name='submit'>Save Article</button>
+                            <button class="form-group mt-2 btn btn-primary" name='submit'>Update Article</button>
 
                         </form>
                     </div>
